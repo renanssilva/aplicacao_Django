@@ -24,7 +24,13 @@
         <div class="row">
             <div class="col-12">
                 <div class="contact-form-area">
-                    <form action="" method="">
+
+<!-- Configurando a tag <form> com um action(a url que ela representa) e um method(metodo de envio de dados)  -->
+                    <form action="{% url 'login' %}" method="POST">
+
+<!-- O middleware CSRF e a template tag {% csrf_token %} fornecem proteção fácil de usar contra falsificações de solicitação entre sites -->
+                        {% csrf_token %}
+
                         <div class="row">
                             <div class="col-12 col-lg-12">
                             <label for="email"><b>Email</b></label>
