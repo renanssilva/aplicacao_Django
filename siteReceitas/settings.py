@@ -132,3 +132,4 @@ STATICFILES_DIRS = [
 # Add rota para arquivos de media  --> Ira precissar intalar o pillow ("python -m pip install Pillow")
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+

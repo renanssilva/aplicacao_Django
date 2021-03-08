@@ -1,7 +1,7 @@
 from django.db import models
 from datetime import datetime
 
-from pessoas.models import Pessoa
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -12,7 +12,7 @@ from pessoas.models import Pessoa
 class Receita(models.Model):
 
     #  CRiando um relacionamento ente a classe pessoa com a classe receita --> Assim, o modleo receito tera uma pessoa
-    pessoa = models.ForeignKey(Pessoa, on_delete=models.CASCADE)
+    pessoa = models.ForeignKey(User, on_delete=models.CASCADE)
 
     nome_receita = models.CharField(max_length=200)
     ingredientes = models.TextField()
