@@ -1,7 +1,7 @@
 from django.db import models
 from datetime import datetime
-
 from django.contrib.auth.models import User
+
 
 # Create your models here.
 
@@ -23,7 +23,7 @@ class Receita(models.Model):
     date_receita = models.DateTimeField(default=datetime.now, blank=True)
 
     # Quando for carregado uma imagem, ira Adicionar na pasta medias(criado pela rota especificada) a imagem no endereço
-    foto_receita = models.ImageField(upload_to='fotos/%d/%m/%Y', blank=True)
+    foto_receita = models.ImageField(upload_to='fotos/%d/%m/%Y/', blank=True)
 
     publicada = models.BooleanField(default=False)
 
