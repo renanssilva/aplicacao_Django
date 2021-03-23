@@ -1,6 +1,5 @@
 from django.contrib import admin
-
-from receitas.models import Receita
+from .models import Receita
 
 
 # Register your models here.

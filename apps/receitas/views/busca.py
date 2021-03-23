@@ -1,5 +1,5 @@
-from receitas.models import Receita
-from django.shortcuts import render, redirect, get_list_or_404, get_object_or_404
+from apps.receitas.models import Receita
+from django.shortcuts import render
 
 def busca(request):
     # PEgando todas as receitas publicadas e ordenadas

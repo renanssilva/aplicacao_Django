@@ -1,8 +1,7 @@
-from django.shortcuts import render, redirect, get_list_or_404, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User  # Vamos usar o USER para verificar se já existe um usuario(modelo) cadastrado
-from receitas.models import Receita
-from django.contrib import auth, messages  # auth -> user authentication(autenticação de usuario)
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from apps.receitas.models import Receita
+from django.core.paginator import Paginator
 
 
 # Create your views here.

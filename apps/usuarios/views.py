@@ -1,11 +1,14 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from django.contrib.auth.models import User  # Vamos usar o USER para verificar se já existe um usuario(modelo) cadastrado
 from django.contrib import auth, messages  # auth -> user authentication(autenticação de usuario)
 
-from receitas.models import Receita
+from apps.receitas.models import Receita
 
 
 def cadastro(request):
+    """
+    Cadastra uma nova pessoa no sistema
+    """
     if request.method == 'POST':
         nome = request.POST['nome']
         email = request.POST['email']
@@ -38,6 +41,9 @@ def cadastro(request):
 
 
 def login(request):
+    """
+    Realiza o login de uma pessoa no sistema
+    """
     if request.method == 'POST':
         email = request.POST['email']
         senha = request.POST['senha']
@@ -58,6 +64,9 @@ def login(request):
 
 
 def dashboard(request):
+    """
+
+    """
     if request.user.is_authenticated:
         id = request.user.id
 
