@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_list_or_404, get_object_or_40
 from django.contrib.auth.models import User  # Vamos usar o USER para verificar se já existe um usuario(modelo) cadastrado
 from receitas.models import Receita
 from django.contrib import auth, messages  # auth -> user authentication(autenticação de usuario)
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 # Create your views here.
@@ -20,8 +21,12 @@ def index(request):
     # order_by('-date_receita') para ordenar de acordo com a data. O sinal '-' é para ordernarmos das mais novas 1º
     receitas = Receita.objects.order_by('-date_receita').filter(publicada=True)  # coloque order_by('-date_receita')
 
+    paginator = Paginator(receitas, 4)  # Definindo quantas receitas / pagina na pagina index Paginator(objeto, paginas)
+    page = request.GET.get('page')  # Identificando qual pagina estamos
+    receitas_por_pagina = paginator.get_page(page)
+
     dados = {
-        'receitas': receitas
+        'receitas': receitas_por_pagina
     }
 
     # renderizando(render)(requisisão(request),template(o nome da pagina do site), contexto(Um dicionario com chave e valor))
