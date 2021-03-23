@@ -1,11 +1,16 @@
 from django.urls import path
 
-from . import views
+from .views import *
 
 # Add funcionalidade de busca das receitas .... o nome= é como se fosse um apelido (alias) para a rota
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('<int:receita_id>', views.receita, name='receita'),
-    path('buscar', views.buscar, name='buscar')
+    path('', index, name='index'),
+    path('<int:receita_id>', receita, name='receita'),
+    path('buscar', busca, name='buscar'),
+    path('cria/receita', cria_receita, name='cria_receita'),
+    path('deleta/<int:receita_id>', deleta_receita, name='deleta_receita'),
+    path('edita/<int:receita_id>', edita_receita, name='edita_receita'),
+    path('atualiza_receita', atualiza_receita, name='atualiza_receita')
 ]
 
+# path('edita/atualiza_receita', atualiza_receita, name='atualiza_receita')
